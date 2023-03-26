@@ -28,7 +28,7 @@ const timeoutMs: number = !isNaN(+process.env.TIMEOUT_MS) ? +process.env.TIMEOUT
 
 let apiModel: ApiModel
 
-if (!isNotEmptyString(process.env.OPENAI_API_KEY) && !isNotEmptyString(process.env.OPENAI_ACCESS_TOKEN))
+if (!isNotEmptyString('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') && !isNotEmptyString(process.env.OPENAI_ACCESS_TOKEN))
   throw new Error('Missing OPENAI_API_KEY or OPENAI_ACCESS_TOKEN environment variable')
 
 let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
@@ -36,13 +36,13 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
 (async () => {
   // More Info: https://github.com/transitive-bullshit/chatgpt-api
 
-  if (isNotEmptyString(process.env.OPENAI_API_KEY)) {
+  if (isNotEmptyString('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')) {
     const OPENAI_API_BASE_URL = process.env.OPENAI_API_BASE_URL
     const OPENAI_API_MODEL = process.env.OPENAI_API_MODEL
     const model = isNotEmptyString(OPENAI_API_MODEL) ? OPENAI_API_MODEL : 'gpt-3.5-turbo'
 
     const options: ChatGPTAPIOptions = {
-      apiKey: process.env.OPENAI_API_KEY,
+      apiKey: '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',
       completionParams: { model },
       debug: true,
     }
@@ -123,7 +123,7 @@ async function chatReplyProcess(options: RequestOptions) {
 }
 
 async function fetchBalance() {
-  const OPENAI_API_KEY = process.env.OPENAI_API_KEY
+  const OPENAI_API_KEY = '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'
   const OPENAI_API_BASE_URL = process.env.OPENAI_API_BASE_URL
 
   if (!isNotEmptyString(OPENAI_API_KEY))
